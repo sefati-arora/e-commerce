@@ -1,0 +1,369 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "project name",
+    "description": "project description",
+    "version": "1.0"
+  },
+  "produces": ["application/json"],
+  "basePath": "/",
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "authorization",
+      "in": "header"
+    }
+  },
+  "paths": {
+    "/api/signUp": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-signUp-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "firstName",
+            "in": "formData",
+            "description": "Enter the firstName",
+            "required": true,
+            "type": "string",
+            "value": "test"
+          },
+          {
+            "name": "lastName",
+            "in": "formData",
+            "description": "Enter lastName ",
+            "required": true,
+            "type": "string",
+            "value": "test"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "Enter the email",
+            "required": true,
+            "type": "string",
+            "value": "test@gmail.com"
+          },
+          {
+            "name": "phoneNumber",
+            "in": "formData",
+            "description": "Enter phone number",
+            "required": true,
+            "type": "string",
+            "value": "+911010101010"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "Enter password",
+            "required": true,
+            "type": "string",
+            "value": "123456"
+          },
+
+          {
+            "name": "countryCode",
+            "in": "formData",
+            "description": "Enter CountryCode",
+            "required": false,
+            "type": "string",
+            "value": ""
+          }
+        ],
+        "responses": { "200": { "description": "User registered successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+
+    "/api/logIn": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-login-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "Enter the email",
+            "required": true,
+            "type": "string",
+            "value": "test@gmail.com"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "Enter password",
+            "required": true,
+            "type": "string",
+            "value": ""
+          }
+        ],
+        "responses": { "200": { "description": "User LogIn successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+    }
+  },
+
+    "/api/logout": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-logout-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "deviceToken",
+            "in": "formData",
+            "description": "Enter deviceToken",
+            "required": false,
+            "type": "string",
+            "value": ""
+          }
+        ],
+        "responses": { "200": { "description": "User LogOut successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/editprofile": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-editprofile-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "firstName",
+            "in": "formData",
+            "description": "ENTER NAME..",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "lastName",
+            "in": "formData",
+            "description": "Enter lastName ",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "phoneNumber",
+            "in": "formData",
+            "description": "Enter phone number",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "Enter the email",
+            "required": false,
+            "type": "string",
+            "value": ""
+          }
+        ],
+       "responses": { "200": { "description": "User profile EDITED successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/accountDeleted": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-accountDeleted-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": ""
+          }
+        ],
+        "responses": { "200": { "description": "User ACCOUNT DELETED successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/forgetPassword": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-forgetPassword-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "Enter the email",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "Enter password",
+            "required": false,
+            "type": "string",
+            "value": ""
+          }
+        ],
+        "responses": { "200": { "description": "User FORGETPASSWORD!" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/changePassword": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-changePassword-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "oldpassword",
+            "in": "formData",
+            "description": "Enter old password",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "newpassword",
+            "in": "formData",
+            "description": "Enter old password",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "confirmPassword",
+            "in": "formData",
+            "description": "Enter old password",
+            "required": false,
+            "type": "string",
+            "value": ""
+          }
+        ],
+        "responses": { "200": { "description": "User password changed successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/getproduct": {
+      "get": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-changePassword-get",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [{
+            "name": "categoryId",
+            "in": "formData",
+            "description": "Enter categoryId",
+            "required": false,
+            "type": "string",
+            "value": ""
+        
+        }],
+        "responses": { "200": { "description": "Product get successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/productBuy": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-productBuy-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "formData",
+            "description": "Enter productId",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "Amount",
+            "in": "formData",
+            "description": "Enter Product Amount",
+            "required": false,
+            "type": "string",
+            "value": ""
+          }
+        ],
+        "responses": { "200": { "description": "User BUY PRODUCT successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/productReview": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-productReviiew-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "formData",
+            "description": "ENTER PRODUCTID",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "message",
+            "in": "formData",
+            "description": "ENTER YOUR MESSAGE",
+            "required": false,
+            "type": "string",
+            "value": ""
+          }
+        ],
+        "responses": { "200": { "description": "Product review send successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "definitions": {}
+  }
+}

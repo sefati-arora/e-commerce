@@ -1,0 +1,47 @@
+module.exports=(Sequelize,sequelize,DataTypes) =>
+{
+    return sequelize.define(
+        "productBuyTable",
+        {
+            ...require('./core')(Sequelize,DataTypes),
+            userId:
+            {
+                type:Sequelize.UUID,
+                allowNull:true,
+                references:
+                {
+                    model:"usertable",
+                    key:"id"
+                },
+                onUpdate:"CASCADE",
+                onDelete:"CASCADE"
+            },
+            productId:
+            {
+                type:DataTypes.UUID,
+                allowNull:true,
+                references:
+                {
+                    model:"productTable",
+                    key:"id"
+                },
+                onUpdate:"CASCADE",
+                onDelete:"CASCADE"
+            },
+            Amount:
+            {
+                type:DataTypes.STRING(225),
+                allowNull:true
+            },
+            status:
+            {
+                type:DataTypes.INTEGER,
+                allowNull:true,
+                defaultValue:0   //0 for inactive  1 for active
+            }
+        },
+        {
+            tableName:"productBuyTable"
+        }
+    )
+}

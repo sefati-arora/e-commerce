@@ -1,0 +1,41 @@
+module.exports=(Sequelize,sequelize,DataTypes) =>
+{
+    return sequelize.define(
+        "reviewtable",
+        {
+            ...require('./core')(Sequelize,DataTypes),
+            userId:
+            {
+                type:Sequelize.UUID,
+                allowNull:true,
+                references:
+                {
+                    model:"usertable",
+                    key:"id"
+                },
+                onUpadte:"CASCADE",
+                onDelete:"CASCADE"
+            },
+            productBuyId:
+            {
+                type:Sequelize.UUID,
+                allowNull:true,
+                references:
+                {
+                    model:"productBuyTable",
+                    key:"id"
+                },
+                onUpdate:"CASCADE",
+                onDelete:"CASCADE"
+            },
+            message:
+            {
+                type:DataTypes.TEXT("long"),
+                allowNull:true
+            }
+        },
+        {
+            tableName:"reviewtable"
+        }
+    )
+}

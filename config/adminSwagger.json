@@ -1,0 +1,228 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "project name",
+    "description": "project description",
+    "version": "1.0"
+  },
+  "produces": ["application/json"],
+  "basePath": "/",
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "authorization",
+      "in": "header"
+    }
+  },
+  "paths": {
+    "/api/category": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-category-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "formData",
+            "description": "ENTER TITLE",
+            "required": true,
+            "type": "string",
+            "value": ""
+          }
+        ],
+        "responses": { "200": { "description": "Product get successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/editCategory": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-editcategory-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "ENTER categoryId",
+            "required": true,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "description": "ENTER TITLE",
+            "required": true,
+            "type": "string",
+            "value": ""
+          }
+        ],
+        "responses": { "200": { "description": "Product get successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/deleteCategory": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-deletecategory-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "formData",
+            "description": "ENTER categoryId",
+            "required": true,
+            "type": "string",
+            "value": ""
+          }
+        ],
+        "responses": { "200": { "description": "Product get successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/productDetail": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-productDetail-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "description": "ENTER categoryId",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "description": "ENTER TITLE",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "description": "ENTERdescription",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "description": "ENTER price",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "Upload images",
+            "required": false,
+            "type": "file",
+            "format": "binary",
+            "maxLength": 5242880,
+            "allowedMimeTypes": ["image/jpeg", "image/png"]
+          }
+        ],
+        "responses": { "200": { "description": "Product get successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/EditProduct": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-EditProduct-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "formData",
+            "description": "ENTER categoryId",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "description": "ENTER TITLE",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "description": "ENTERdescription",
+            "required": false,
+            "type": "string",
+            "value": ""
+          },
+          {
+            "name": "price",
+            "in": "formData",
+            "description": "ENTER price",
+            "required": false,
+            "type": "string",
+            "value": ""
+          }
+        ],
+        "responses": { "200": { "description": "Product get successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/api/deleteProduct": {
+      "post": {
+        "x-swagger-router-controller": "middleware-name1",
+        "operationId": "api-deleteProduct-post",
+        "tags": ["Application User"],
+        "description": "",
+        "parameters": [ {
+            "name": "categoryId",
+            "in": "formData",
+            "description": "ENTER categoryId",
+            "required": false,
+            "type": "string",
+            "value": ""
+          }],
+        "responses": { "200": { "description": "Product get successfully" } },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "definitions": {}
+  }
+}
