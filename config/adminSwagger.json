@@ -215,7 +215,7 @@
             "type": "string",
             "value": ""
           }],
-        "responses": { "200": { "description": "Product get successfully" } },
+        "responses": { "200": { "description": "Product delete successfully" } },
         "security": [
           {
             "Bearer": []
